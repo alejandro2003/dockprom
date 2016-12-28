@@ -1,3 +1,4 @@
+
 global:
   scrape_interval:     15s
   evaluation_interval: 15s
@@ -18,24 +19,15 @@ scrape_configs:
   - job_name: 'nodeexporter'
     scrape_interval: 5s
     static_configs:
-      - targets: ['nodeexporter:9100']
+      - targets: ['10.200.1.77:19100', '10.200.1.242:19100', '10.200.0.147:19100', '10.200.0.144:19100', '10.200.0.135:19100', '10.200.0.123:19100', '10.200.0.124:19100', '10.200.0.125:19100']
 
   - job_name: 'cadvisor'
     scrape_interval: 5s
     static_configs:
-      - targets: ['cadvisor:8080']
+      - targets: ['10.200.1.77:18080', '10.200.1.242:18080', '10.200.0.147:18080', '10.200.0.144:18080', '10.200.0.135:18080', '10.200.0.123:18080', '10.200.0.124:18080', '10.200.0.125:18080']
 
   - job_name: 'prometheus'
     scrape_interval: 10s
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['10.200.1.77:19090']
 
-#  - job_name: 'nginx'
-#    scrape_interval: 10s
-#    static_configs:
-#      - targets: ['nginxexporter:9113']
-
-#  - job_name: 'aspnetcore'
-#    scrape_interval: 10s
-#    static_configs:
-#      - targets: ['eventlog-proxy:5000', 'eventlog:5000']

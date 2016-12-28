@@ -1,16 +1,9 @@
-version: '2'
-
-services:
-
+  
   nodeexporter:
     image: prom/node-exporter
     container_name: nodeexporter
-    restart: unless-stopped
     ports:
-      - 9100:9100
-    network_mode: host
-    labels:
-      org.label-schema.group: "monitoring"
+      - 19100:9100
 
   cadvisor:
     image: google/cadvisor:v0.24.1
@@ -20,11 +13,6 @@ services:
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
-    restart: unless-stopped
     ports:
-      - 8080:8080
-    network_mode: host
-    labels:
-      org.label-schema.group: "monitoring"
-  
+      - 18080:8080
 
