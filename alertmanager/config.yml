@@ -7,5 +7,5 @@ receivers:
           - send_resolved: true
             text: "{{ .CommonAnnotations.description }}"
             username: 'Prometheus'
-            channel: '#<channel-name>'
-            api_url: 'https://hooks.slack.com/services/<webhook-id>'
+            channel: '#alerts'
+            api_url: 'https://hooks.slack.com/services/xoxp-113264742150-112610678226-120994361234-00ef482f23c4613288aeb6a66375a743'
