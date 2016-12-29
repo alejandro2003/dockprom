@@ -1,11 +1,14 @@
+
+
+global:
+  slack_api_url: 'https://hooks.slack.com/services/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'
+
 route:
-    receiver: 'slack'
+  receiver: 'slack-notifications'
+  # All alerts in a notification have the same value for these labels.
+  group_by: [alertname, datacenter, app]
 
 receivers:
-    - name: 'slack'
-      slack_configs:
-          - send_resolved: true
-            text: "{{ .CommonAnnotations.description }}"
-            username: 'Prometheus'
-            channel: '#alerts'
-            api_url: 'https://hooks.slack.com/services/xoxp-113264742150-112610678226-120994361234-00ef482f23c4613288aeb6a66375a743'
+- name: 'slack-notifications'
+  slack_configs:
+  - channel: '#alerts'
