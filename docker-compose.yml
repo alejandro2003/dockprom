@@ -4,12 +4,10 @@
     container_name: prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
-      - prometheus_data:/prometheus
+      - ./prometheus_data/:/prometheus/
     command:
       - '-config.file=/etc/prometheus/prometheus.yml'
-      - '-storage.local.path=/prometheus'
       - '-alertmanager.url=http://alertmanager:19093'
-      - '-storage.local.memory-chunks=100000'
     ports:
       - 19090:9090
   
@@ -45,7 +43,7 @@
     image: grafana/grafana
     container_name: grafana
     volumes:
-      - grafana_data:/var/lib/grafana
+      - ./grafana_data:/var/lib/grafana
     env_file:
       - user.config
     ports:
